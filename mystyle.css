@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+body{
+    background-color: #f0f0f0;
+}
+.bg-linkedin_logo {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -10px -10px;
+}
+.bg-spotify {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -62px -10px;
+}
+.bg-google {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -10px -62px;
+}
+.bg-instagram {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -62px -62px;
+}
+.bg-twitter {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -114px -10px;
+}
+.bg-telegram {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -114px -62px;
+}
+.bg-facebook {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -10px -114px;
+}
+.header{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.curriculum-vitae{
+    display: flex;
+    flex-direction: column;
+}
+.footer{
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+}
+.contact-us{
+    display: flex;
+}
+.icon{
+    margin: 1rem;
+}
+
+.header_item_link:link , .header_item_link:active, .header_item_link:visited  {
+    color: #000;
+    text-decoration: none;
+}
+@media only screen and (max-width: 600px){
+    .header{
+        height: 3rem;
+    }
+    .header_item{
+        margin: 1rem;
+    }
+    .introduction-cart{
+        display: flex;
+        width: 70%;
+        margin: 4rem auto;
+        flex-direction: column;
+    }
+    .introduction-image{
+        width: 100%;
+    }
+    .introduction-image > img{
+        width: 100%;
+    }
+    .introduction-description-paragraph{
+        align-items: center;
+    }
+    .curriculum-vitae{
+    margin: auto 1rem;
+    }
+    .curriculum-vitae-paragraph{
+        font-size: 1.5rem ;
+    }
+    .resumes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .resume{
+        display: flex;
+        flex-direction: row;
+        margin:1rem;
+        max-height: 15rem;
+    }
+    .resume-image{
+        width: 40%;
+    }
+    .resume-paragraph{
+        width: 60%;
+        padding: 0.5rem;
+    }
+    .resume-image > img{
+        width: 100%;
+        height: 100%;
+    }
+}
+@media only screen and (min-width: 600px){
+    .header{
+        height: 3rem;
+    }
+    .header_item{
+        margin: 1rem;
+    }
+    .introduction-cart{
+        display: flex;
+        width: 70%;
+        margin: 4rem auto;
+        flex-direction: column;
+    }
+    .introduction-image{
+        width: 100%;
+    }
+    .introduction-image > img{
+        width: 100%;
+    }
+    .introduction-description-paragraph{
+        align-items: center;
+    }
+    .curriculum-vitae{
+    margin: auto 1rem;
+    }
+    .curriculum-vitae-paragraph{
+        font-size: 1.5rem ;
+    }
+    .resumes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .resume{
+        display: flex;
+        flex-direction: row;
+        margin:1rem;
+        max-height: 15rem;
+    }
+    .resume-image{
+        width: 40%;
+    }
+    .resume-paragraph{
+        width: 60%;
+        padding: 0.5rem;
+    }
+    .resume-image > img{
+        width: 100%;
+        height: 100%;
+    }
+}
+@media only screen and (min-width: 768px){
+    .header{
+        height: 3rem;
+    }
+    .header_item{
+        margin: 1.5rem;
+    }
+    .introduction-cart{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+    }
+    .introduction-image{
+        max-width: 40%;
+        max-height: 40% ;
+    }
+    .introduction-description{
+        padding: 1rem;
+    }
+}
+@media only screen and (min-width: 992px){
+    .resumes{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10rem;
+    }
+    .resume{
+        width: 45%;
+    }
+    .footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .resume{
+        width: 40%;
+        max-height: 20rem ;
+    }
+
+}
+
