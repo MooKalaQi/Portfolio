@@ -185,15 +185,21 @@ body{
     }
 }
 @media only screen and (min-width: 992px){
+    *{
+        font-size: 1.5rem;
+    }
     .resumes{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-bottom: 10rem;
     }
     .resume{
         width: 45%;
+    }
+    .resume:hover{
+        border: 5px solid #FF7A00;
     }
     .footer{
         position: fixed;
