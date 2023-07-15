@@ -1,0 +1,52 @@
+body{
+    background-color: #164B60;
+    color: #4FC0D0;
+
+}
+a:link , a:active, a:visited  {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #1B6B93 ;
+}
+
+.id_tag:hover{
+    text-decoration:underline;
+    color:#A2FF86 ;
+}
+
+.header_items:hover, .footer_icon:hover{
+    color: #ececec74;
+    text-decoration: underline;
+}
+h2{
+    color: #A2FF86;
+}
+
+.row{
+    height: 40rem;
+}
+.profile-pic{
+    width: 300px;
+    height: 300px;
+    border-radius: 10rem;
+    border: 5px solid black;
+}
+.cv_cart-image{
+    width: 100%;
+    height: 250px;
+}
+
+.container>h2{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+
+}
+.container>h2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
