@@ -101,4 +101,5 @@ export const en: Dict = {
     },
   },
   footer: "built with Next.js and Tailwind",
+  socials: { label: "Social links", x: "X", instagram: "Instagram", spotify: "Spotify" },
 };

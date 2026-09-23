@@ -7,6 +7,13 @@ export const contact = {
   linkedinHandle: "amirarsalan",
 };
 
+/** Footer social links. Labels live in the dictionaries under `socials`. */
+export const socials = {
+  x: "https://x.com/MooKalaQi",
+  instagram: "https://www.instagram.com/_arsaalan",
+  spotify: "https://open.spotify.com/user/ayiksedatyu66zc7mrogtlumf?si=fde22ebc19784726",
+};
+
 /**
  * Card-to-card details for the coffee modal. `display` is the readable grouping,
  * `raw` is what gets copied — a banking app won't accept the separators.

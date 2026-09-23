@@ -2,11 +2,14 @@ import { AtSign } from "lucide-react";
 import { ScrollMorph } from "@/components/animations/scroll-morph";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { CoffeeModal } from "@/components/coffee-modal";
+import { InstagramIcon } from "@/components/icons/instagram";
 import { LinkedinIcon } from "@/components/icons/linkedin";
+import { SpotifyIcon } from "@/components/icons/spotify";
+import { XIcon } from "@/components/icons/x";
 import { PortraitCard } from "@/components/portrait-card";
 import { Section } from "@/components/section";
 import { SectionTimeline } from "@/components/section-timeline";
-import { contact } from "@/lib/content";
+import { contact, socials } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 import { REVEAL_STAGGER } from "@/lib/timing";
@@ -236,9 +239,34 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
           <footer
             id="site-footer"
-            className="site-footer border-t border-border py-10 text-xs text-muted-foreground"
+            className="site-footer flex flex-col items-start gap-4 border-t border-border py-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
           >
-            © {contact.handle} — {dict.footer}
+            <p className="site-footer__credit">
+              © {contact.handle} — {dict.footer}
+            </p>
+            {/* 44px targets around 18px icons; the negative margin lines the glyphs up
+                with the text edge instead of the invisible hit area. */}
+            <ul aria-label={dict.socials.label} className="site-footer__socials -ms-3 flex items-center sm:ms-0 sm:-me-3">
+              {(
+                [
+                  { key: "x", Icon: XIcon },
+                  { key: "instagram", Icon: InstagramIcon },
+                  { key: "spotify", Icon: SpotifyIcon },
+                ] as const
+              ).map(({ key, Icon }) => (
+                <li key={key} className="site-footer__social-item">
+                  <a
+                    href={socials[key]}
+                    target="_blank"
+                    rel="me noreferrer"
+                    aria-label={dict.socials[key]}
+                    className={`site-footer__social site-footer__social--${key} inline-flex size-11 items-center justify-center rounded-lg transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}
+                  >
+                    <Icon className="site-footer__icon size-[18px]" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </footer>
         </div>
       </div>

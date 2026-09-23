@@ -99,6 +99,7 @@ export const fa = {
     },
   },
   footer: "ساخته‌شده با Next.js و Tailwind",
+  socials: { label: "شبکه‌های اجتماعی", x: "ایکس", instagram: "اینستاگرام", spotify: "اسپاتیفای" },
 };
 
 export type Dict = typeof fa;
