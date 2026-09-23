@@ -1,26 +1,271 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (toggle writes .dark onto <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* --- mookalaqi:theme --- Palette A-9
+   #f8f8ff ghost white · #353839 onyx · #004953 teal · #cc3333 red · #a9acb6 grey
+   Custom tokens; contrast ratios noted per token. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --background: oklch(0.981 0.009 286.2);        /* #f8f8ff */
+  --foreground: oklch(0.338 0.004 219.6);        /* #353839  11.18:1 */
+
+  --card: oklch(1 0 0);                          /* #ffffff, lifts off the ghost-white page */
+  --card-foreground: oklch(0.338 0.004 219.6);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.338 0.004 219.6);
+
+  --primary: oklch(0.338 0.004 219.6);           /* onyx fill */
+  --primary-foreground: oklch(0.981 0.009 286.2);
+  --secondary: oklch(0.955 0.006 272.6);
+  --secondary-foreground: oklch(0.338 0.004 219.6);
+  --muted: oklch(0.965 0.005 272.6);
+  --muted-foreground: oklch(0.554 0.02 272.6);   /* #6e727f  4.52:1 — darkened from #a9acb6 */
+  --accent: oklch(0.955 0.006 272.6);
+  --accent-foreground: oklch(0.338 0.004 219.6);
+
+  --destructive: oklch(0.505 0.21 12);           /* crimson, pulled off the brand hue */
+  --success: oklch(0.52 0.13 155);
+  --warning: oklch(0.54 0.13 75);                /* #9a6100  4.91:1 — amber needs darkening on near-white */
+
+  --border: oklch(0.828 0.015 272.6);            /* #c3c6d1, the palette grey lightened */
+  --input: oklch(0.828 0.015 272.6);
+  --ring: oklch(0.559 0.19 25.9);
+
+  --brand: oklch(0.559 0.19 25.9);               /* #cc3333 fill */
+  --brand-foreground: oklch(0.981 0.009 286.2);  /*          4.86:1 on the fill */
+  --brand-ink: oklch(0.559 0.19 25.9);           /* #cc3333  4.86:1 as text here */
+
+  --teal: oklch(0.372 0.064 210.3);              /* #004953  9.56:1 */
+  --teal-foreground: oklch(0.981 0.009 286.2);
+
+  --radius: 0.625rem;
 }
 
+.dark {
+  color-scheme: dark;
+
+  --background: oklch(0.145 0.004 219.6);        /* #090a0b — near-black, keeps the onyx hue */
+  --foreground: oklch(0.981 0.009 286.2);        /* #f8f8ff  18.8:1 */
+
+  --card: oklch(0.195 0.004 219.6);              /* lifts off the page */
+  --card-foreground: oklch(0.981 0.009 286.2);
+  --popover: oklch(0.225 0.004 219.6);
+  --popover-foreground: oklch(0.981 0.009 286.2);
+
+  --primary: oklch(0.981 0.009 286.2);
+  --primary-foreground: oklch(0.145 0.004 219.6);
+  --secondary: oklch(0.245 0.006 272.6);
+  --secondary-foreground: oklch(0.981 0.009 286.2);
+  --muted: oklch(0.22 0.005 272.6);
+  --muted-foreground: oklch(0.745 0.015 272.6);  /* #a9acb6  8.8:1 */
+  --accent: oklch(0.245 0.006 272.6);
+  --accent-foreground: oklch(0.981 0.009 286.2);
+
+  --destructive: oklch(0.72 0.15 12);
+  --success: oklch(0.72 0.14 155);
+  --warning: oklch(0.80 0.15 75);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.559 0.19 25.9);
+
+  --brand: oklch(0.559 0.19 25.9);               /* #cc3333 */
+  --brand-foreground: oklch(0.981 0.009 286.2);
+  --brand-ink: oklch(0.559 0.19 25.9);           /* #cc3333 exactly — held, not lightened */
+
+  --teal: oklch(0.698 0.075 210.3);              /* #62abb8 — #004953 is 1.97:1 even on near-black */
+  --teal-foreground: oklch(0.145 0.004 219.6);
+}
+/* --- mookalaqi:theme-end --- */
+
+/* --- vibefarsi:tailwind-map --- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-ink: var(--brand-ink);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  body {
+    font-size: 16.5px;
+    line-height: 1.8;
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+/* --- vibefarsi:tailwind-map-end --- */
+
+/* --- vibefarsi:font --- */
+@theme inline {
+  --font-sans: var(--font-vazirmatn), "IRANSans", "IRANSansX", "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+}
+/* --- vibefarsi:font-end --- */
+
+/* --- mookalaqi:loader --- */
+/* Repeat visit in this session: hide the intro before it can paint at all. */
+.loader-seen #loading-screen {
+  display: none;
+}
+
+.lattice-cell {
+  --ll-idle: 0.15;
+  animation-name: lattice-on;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes lattice-on {
+  0%, 100% { opacity: var(--ll-idle); }
+  18%, 42% { opacity: 1; }
+  62%      { opacity: var(--ll-idle); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lattice-cell {
+    animation-delay: 0ms !important;
+    animation-duration: 1400ms !important;
+  }
+}
+/* --- mookalaqi:loader-end --- */
+
+/* --- mookalaqi:animations --- */
+
+/* ظهور ماسکی — line uncovers from the right (vibefarsi text-reveal). */
+/* Matches LOADER_HOLD in lib/timing.ts. */
+:root {
+  --reveal-start: 3200ms;
+}
+
+/* Intro already seen this session, so there is no loader to wait for. */
+.loader-seen {
+  --reveal-start: 0ms;
+}
+
+.wipe-line {
+  animation-name: wipe-in;
+  /* Default duration; TextReveal overrides it inline. Without this the shorthand
+     leaves duration at 0s and the line snaps in with no wipe at all. */
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes wipe-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+    transform: translateY(0.35em);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*
+  Scroll morph. The start state is scoped to .js so the content is readable when
+  scripts are blocked — otherwise every block would sit at opacity 0 forever.
+*/
+.js .morph-in {
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.975);
+  filter: blur(10px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.js .morph-in[data-shown] {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wipe-line {
+    animation: none;
+  }
+
+  .js .morph-in,
+  .js .morph-in[data-shown] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+/* Dialog entrance (vibefarsi's dialog expects `animate-fade-up`). */
+.animate-fade-up {
+  animation: fade-up 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}
+/* Raised back face of the portrait flip card, so it reads as lifted. */
+.portrait__face--back {
+  box-shadow:
+    0 20px 45px -15px oklch(0 0 0 / 40%),
+    0 6px 14px -8px oklch(0 0 0 / 30%);
+}
+
+.dark .portrait__face--back {
+  box-shadow:
+    0 20px 45px -15px oklch(0 0 0 / 75%),
+    0 0 0 1px oklch(1 0 0 / 10%);
+}
+/* --- mookalaqi:animations-end --- */

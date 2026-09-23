@@ -1,0 +1,12 @@
+{
+  "registry": "https://vibefarsi.ir/r",
+  "font": "vazirmatn",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "lib": "@/lib"
+  },
+  "tailwind": {
+    "css": "app/globals.css"
+  }
+}
