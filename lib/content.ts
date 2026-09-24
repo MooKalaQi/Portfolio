@@ -20,5 +20,5 @@ export const socials = {
  */
 export const payment = {
   iban: { raw: "IR060560611828005116170901", display: "IR06 0560 6118 2800 5116 1709 01" },
-  card: { raw: "6219861496368265", display: "6219 - 8614 - 9636 - 8265" },
+  card: { raw: "6219861406368265", display: "6219 - 8614 - 0636 - 8265" },
 };
