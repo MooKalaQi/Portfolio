@@ -32,3 +32,7 @@ Lint with `npm run lint`.
 - `lib/dictionaries/` — all site text (`fa.ts`, `en.ts`)
 - `lib/content.ts` — email, LinkedIn and payment details
 - `public/profile.jpg` — the photo the site uses; the original is kept locally in `assets/`, which is git-ignored
+
+## License
+
+The code is MIT. The photo, bank details, contact details, written text and the names "AmirArsalan Zolfaghari" and "MooKalaQi" are **not** licensed: all rights reserved. If you reuse the code, remove or replace them. See [LICENSE](LICENSE).
