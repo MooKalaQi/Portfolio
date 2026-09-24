@@ -67,8 +67,8 @@ export function PortraitCard({
           <Image
             src="/profile.jpg"
             alt={alt}
-            width={1140}
-            height={1425}
+            width={640}
+            height={800}
             priority
             sizes="(max-width: 1279px) 14rem, 17rem"
             className="portrait__image h-full w-full object-cover object-[50%_15%]"

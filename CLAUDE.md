@@ -6,11 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-`npm run dev` (port 3000), `npm run build` (also type-checks), `npm run lint`. No test suite; verify in the browser preview. Stale route types: `rm -rf .next/types`. Old photo still showing after replacing `public/profile.jpg`: `rm -rf .next/dev/cache/images`.
+`npm run dev` (port 3000), `npm run build` (type-checks, writes the static site to `out/`), `npm run lint`. No test suite; verify in the browser preview. Stale route types: `rm -rf .next/types`. Old photo still showing after replacing `public/profile.jpg`: `rm -rf .next/dev/cache/images`.
 
 ## Architecture
 
-- Bilingual single page under `app/[lang]/`: Farsi (RTL, default) and English (LTR), same content with the layout mirrored. `/` redirects to `/fa` in `next.config.ts`.
+- Bilingual single page under `app/[lang]/`: Farsi (RTL, default) and English (LTR), same content with the layout mirrored. The bare `/` is `app/(root)/`, a forwarding page to `/fa`.
+- Static export (`output: "export"`) deployed to GitHub Pages by `.github/workflows/deploy.yml`. No server features: no `redirects()`, proxy, image optimization (`public/profile.jpg` is pre-sized to 640×800) or request-time APIs.
 - All text is in `lib/dictionaries/`; `fa.ts` defines the `Dict` type. Dictionaries reach client components, so strings only, no functions (use `{label}` placeholders). Language-independent data is in `lib/content.ts`.
 - Mirroring comes from `dir` alone: use logical utilities (`ms-`, `ps-`, `border-s`, `start-`) and `col-start-*`, never left/right.
 - The raw inline `<script>` in the layout `<head>` sets `.js`, `.dark` and `.loader-seen` before paint. Keep it raw (not `next/script`), and keep `LangToggle` a plain `<a>`, not `<Link>`, or React's script-tag warning returns.

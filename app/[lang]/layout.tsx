@@ -11,6 +11,9 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
+// Static export: only the locales above exist; anything else is a 404.
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
